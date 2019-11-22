@@ -1,28 +1,25 @@
-enablePlugins(JavaServerAppPackaging)
+val akkaVersion = "2.5.20"
+val akkaHttpVersion = "10.1.7"
 
-name := "goticks"
+lazy val up = (project in file("."))
+    .enablePlugins(JavaServerAppPackaging)
+    .settings(
+      name := "goticks",
 
-version := "1.0"
+      version := "1.0",
 
-organization := "com.goticks" 
+      organization := "com.goticks",
 
-libraryDependencies ++= {
-  val akkaVersion = "2.5.4"
-  val akkaHttpVersion = "10.0.10"
-  Seq(
-    "com.typesafe.akka" %% "akka-actor"      % akkaVersion,
-    "com.typesafe.akka" %% "akka-stream"     % akkaVersion,
-    "com.typesafe.akka" %% "akka-http-core"  % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http"       % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-slf4j"      % akkaVersion,
-    "ch.qos.logback"    %  "logback-classic" % "1.1.3",
-    "com.typesafe.akka" %% "akka-testkit"    % akkaVersion   % "test",
-    "org.scalatest"     %% "scalatest"       % "3.0.0"       % "test"
-  )
-}
+      libraryDependencies ++= Seq(
+          "com.typesafe.akka" %% "akka-actor"      % akkaVersion,
+          "com.typesafe.akka" %% "akka-stream"     % akkaVersion,
+          "com.typesafe.akka" %% "akka-http-core"  % akkaHttpVersion,
+          "com.typesafe.akka" %% "akka-http"       % akkaHttpVersion,
+          "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+          "com.typesafe.akka" %% "akka-slf4j"      % akkaVersion,
+          "ch.qos.logback"    %  "logback-classic" % "1.1.3",
+          "com.typesafe.akka" %% "akka-testkit"    % akkaVersion   % "test",
+          "org.scalatest"     %% "scalatest"       % "3.0.0"       % "test"
+        )
+    )
 
-// Assembly settings
-mainClass in assembly := Some("com.goticks.Main")
-
-assemblyJarName in assembly := "goticks.jar"
