@@ -5,10 +5,11 @@ version := "1.0"
 organization := "com.goticks"
 
 libraryDependencies ++= {
-  val akkaVersion = "2.4.19"
-  val akkaHttpVersion ="10.0.9"
+  val akkaVersion = "2.5.4"
+  val akkaHttpVersion ="10.0.10"
   Seq(
     "com.typesafe.akka" %%  "akka-actor"              % akkaVersion,
+    "com.typesafe.akka" %%  "akka-stream"             % akkaVersion,
     "com.typesafe.akka" %%  "akka-slf4j"              % akkaVersion,
 
     "com.typesafe.akka" %%  "akka-remote"             % akkaVersion,
@@ -24,6 +25,6 @@ libraryDependencies ++= {
 }
 
 // Assembly settings
-mainClass in assembly := Some("com.goticks.SingleNodeMain")
+mainClass in Global := Some("com.goticks.SingleNodeMain")
 
 assemblyJarName in assembly := "goticks-server.jar"

@@ -17,7 +17,9 @@ class BasketSpec extends PersistenceSpec(ActorSystem("test"))
   val appleKeyboard = Item("Apple Keyboard", 1, BigDecimal(79.99))
   val dWave = Item("D-Wave One", 1, BigDecimal(14999999.99))
 
+  // 買い物かご
   "The basket" should {
+    // 回復処理ではClearイベントより前のイベントはスキップされる
     "skip basket events that occured before Cleared during recovery" in {
       val basket = system.actorOf(Basket.props, Basket.name(shopperId))
       basket ! Basket.Add(macbookPro, shopperId)

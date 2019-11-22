@@ -1,8 +1,10 @@
 package com.goticks
 
 import akka.actor.ActorSystem
+
 import akka.testkit.{ImplicitSender, TestKit}
-import org.scalatest.{MustMatchers, WordSpecLike}
+
+import org.scalatest.{WordSpecLike, MustMatchers}
 
 class TickerSellerSpec extends TestKit(ActorSystem("testTickets"))
                          with WordSpecLike
@@ -51,7 +53,7 @@ class TickerSellerSpec extends TestKit(ActorSystem("testTickets"))
       val secondBatchSize = 5
       val nrBatches = 18
 
-      val batches = (1 to nrBatches)
+      val batches = (1 to nrBatches * secondBatchSize)
       batches.foreach(_ => ticketingActor ! Buy(secondBatchSize))
 
       val tickets = receiveN(nrBatches)

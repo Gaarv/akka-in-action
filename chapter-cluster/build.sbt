@@ -5,7 +5,7 @@ version := "1.0"
 organization := "com.manning"
 
 libraryDependencies ++= {
-  val akkaVersion = "2.4.19"
+  val akkaVersion = "2.5.4"
   Seq(
     "com.typesafe.akka"       %% "akka-actor"                        % akkaVersion,
     "com.typesafe.akka"       %% "akka-slf4j"                        % akkaVersion,
@@ -20,6 +20,6 @@ libraryDependencies ++= {
 }
 
 // Assembly settings
-mainClass in assembly := Some("aia.cluster.words.Main")
+mainClass in Global := Some("aia.cluster.words.Main")
 
 assemblyJarName in assembly := "words-node.jar"

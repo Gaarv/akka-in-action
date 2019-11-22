@@ -16,6 +16,8 @@ lazy val futures     = project.in(file("chapter-futures"))
 
 lazy val integration = project.in(file("chapter-integration"))
 
+lazy val java = project.in(file("chapter-java"))
+
 lazy val looking     = project.in(file("chapter-looking-ahead"))
 
 lazy val persistence = project.in(file("chapter-persistence"))
@@ -28,8 +30,12 @@ lazy val state       = project.in(file("chapter-state"))
 
 lazy val stream      = project.in(file("chapter-stream"))
 
+lazy val `stream-integration` = project.in(file("chapter-stream-integration"))
+
 lazy val structure   = project.in(file("chapter-structure"))
 
 lazy val test        = project.in(file("chapter-testdriven"))
 
 lazy val up          = project.in(file("chapter-up-and-running"))
+
+parallelExecution in Test := false
